@@ -1,0 +1,13 @@
+{
+  "dashboard": {
+    "pageHeader": "Dashboard",
+    "summaryCard": {
+      "newUsers": "New Users"
+    },
+    "charts": {
+      "lineChart": "Line Chart",
+      "barChart": "Bar Chart",
+      "trafficSources": "Traffic Sources"
+    }
+  }
+}

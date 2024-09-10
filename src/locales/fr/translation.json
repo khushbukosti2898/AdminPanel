@@ -1,0 +1,13 @@
+{
+  "dashboard": {
+    "pageHeader": "Tableau de bord",
+    "summaryCard": {
+      "newUsers": "Nouveaux utilisateurs"
+    },
+    "charts": {
+      "lineChart": "Graphique linéaire",
+      "barChart": "Graphique à barres",
+      "trafficSources": "Sources de trafic"
+    }
+  }
+}
