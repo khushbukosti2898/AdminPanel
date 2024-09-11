@@ -78,7 +78,7 @@ export const Section = ({ index, section, setFieldValue, pushSection }) => {
                     sectionIndex={index}
                     setFieldValue={setFieldValue}
                   />
-                  <Stack width="100px" direction="row" gap={1}>
+                  <Stack minWidth="90px" direction="row" gap={1}>
                     <IconButton onClick={() => push(initialItem)}>
                       <AddCircleIcon />
                     </IconButton>

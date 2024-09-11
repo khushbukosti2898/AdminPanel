@@ -28,7 +28,6 @@ locales: Stores the translation files for i18next. These files handle multi-lang
 pages: Contains main page components like Dashboard.js.
 services: Includes any mock APIs or data services used by the application.
 
-
 Implemented Features
 
 Dashboard Page
@@ -48,15 +47,14 @@ Implemented full featured form and log data only (did not get chance to table bu
 
 i18next Integration
 Supports multiple languages, with language files located in the locales folder.
-Languages can be easily added by updating the translation files in locales and using the useTranslation hook for dynamic content.
-
+Currently it is implemented for dashboard only.
 
 Design Choices
 
 1. Component-Driven Architecture
    The app is designed around reusable React components like PageHeader, SummaryCard, and ChartComponent. This modular approach ensures scalability and maintainability as more features are added.
 2. i18next for Localization
-   i18next was chosen for its flexibility and ease of integration into React applications. The project can easily support additional languages by adding translation files.
+   i18next was chosen for its flexibility and ease of integration into React applications. The project can easily support additional languages by adding translation files
 3. Material-UI for Styling
    The application uses Material-UI components (Grid, Stack, etc.) to ensure consistent, responsive layouts and user-friendly design.
 4. ECharts for Charting

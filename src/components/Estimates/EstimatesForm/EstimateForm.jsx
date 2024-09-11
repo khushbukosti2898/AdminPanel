@@ -73,12 +73,12 @@ export const EstimateForm = ({ closeForm }) => {
               )}
             </FieldArray>
             <Stack alignItems="end" sx={{ marginLeft: 'auto' }}>
-              <Divider width="280px" />
+              <Divider width="300px" />
               <Stack
                 direction="row"
                 gap={15}
                 justifyContent="space-between"
-                width="280px"
+                width="300px"
                 padding="10px"
               >
                 <Typography color="text.secondary">Sub Total</Typography>
@@ -86,12 +86,12 @@ export const EstimateForm = ({ closeForm }) => {
                   {calculateBaseTotal(values.sections)}
                 </Typography>
               </Stack>
-              <Divider width="280px" />
+              <Divider width="300px" />
               <Stack
                 direction="row"
                 gap={15}
                 justifyContent="space-between"
-                width="280px"
+                width="300px"
                 padding="10px"
               >
                 <Typography color="text.secondary">Total Margin</Typography>
@@ -99,12 +99,12 @@ export const EstimateForm = ({ closeForm }) => {
                   {calculateTotalMargin(values.sections)}
                 </Typography>
               </Stack>
-              <Divider width="280px" />
+              <Divider width="300px" />
               <Stack
                 direction="row"
                 gap={15}
                 justifyContent="space-between"
-                width="280px"
+                width="300px"
                 padding="10px"
               >
                 <Typography fontWeight="bold">Total Amount</Typography>
