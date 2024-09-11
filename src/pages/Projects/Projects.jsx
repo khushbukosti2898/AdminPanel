@@ -1,14 +1,7 @@
-import {
-  Button,
-  Card,
-  Divider,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Card, Stack } from '@mui/material';
 import { PageHeader } from '../../components/PageHeader';
 import { PageSubheader } from '../../components/PageSubheader';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ProjectForm } from '../../components/Projects/Form/ProjectForm';
 import { ProjectTable } from '../../components/Projects/PorjectTable/ProjectTable';
 import { useDispatch, useSelector } from 'react-redux';
@@ -107,7 +100,7 @@ export const Projects = () => {
   return (
     <Stack gap="15px">
       <PageHeader title="Projects" />
-      {!openProjectFormModal && (
+      {!openProjectFormModal ? (
         <>
           <PageSubheader
             buttonTitle="Add Project"
@@ -123,10 +116,8 @@ export const Projects = () => {
           />
           <ProjectTable projects={projects} onRowClick={onRowClick} />
         </>
-      )}
-
-      {openProjectFormModal && (
-        <Card sx={{ padding: '50px', borderRadius: '50px' }}>
+      ) : (
+        <Card sx={{ padding: '50px', borderRadius: '10px' }}>
           <ProjectForm
             selectedPorject={selectedPorject}
             onClose={closeProjectForm}

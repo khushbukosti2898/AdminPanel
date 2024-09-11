@@ -7,13 +7,14 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Select, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { drawerWidth } from '../containers/Home';
 
 const LanguageSelector = [
   { value: 'en', label: 'English' },
   { value: 'fr', label: 'Français' },
 ];
 
-export const Appbar = ({ handleDrawerToggle }) => {
+export const Appbar = ({ handleDrawerToggle, open }) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => {
@@ -21,20 +22,38 @@ export const Appbar = ({ handleDrawerToggle }) => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: 1201 }}>
+    <AppBar
+      position="fixed"
+      sx={{ backgroundColor: 'white', boxShadow: 'none' }}
+    >
       <Toolbar>
+        <Typography
+          width={drawerWidth}
+          color="black"
+          variant="h4"
+          fontWeight="bold"
+          textAlign="center"
+        >
+          LO
+          <Typography
+            variant="h4"
+            component="span"
+            sx={(theme) => ({ color: theme.palette.primary.main })}
+          >
+            GO
+          </Typography>
+        </Typography>
         <IconButton
-          color="inherit"
-          aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
+          sx={[
+            {
+              // ml: !open ? 30 : 0,
+            },
+          ]}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          LOGO
-        </Typography>
         <Stack ml="auto">
           <div>
             <Select

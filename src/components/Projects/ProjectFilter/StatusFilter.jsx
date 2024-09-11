@@ -1,4 +1,4 @@
-import { Button, Box, Chip, Popover, Stack, Typography } from '@mui/material';
+import { Button, Chip, Popover, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { PROJECT_STATUS_OPTIONS } from '../../../const/projects';
@@ -30,11 +30,12 @@ export const StatusFilter = ({ applyFilter, filter }) => {
   return (
     <>
       <Button
-        aria-describedby={id}
         variant="text"
         onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-        sx={{ textTransform: 'inherit' }}
+        sx={{ '.MuiButton-icon': { marginLeft: '30px' } }}
+        endIcon={<KeyboardArrowDownIcon sx={{ marginLeft: '12px' }} />}
+        color="rgba(0, 0, 0, 0.87)"
+        className="filterItem"
       >
         Status
       </Button>
@@ -47,26 +48,26 @@ export const StatusFilter = ({ applyFilter, filter }) => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
+        sx={{ '.MuiPaper-root': { borderRadius: '15px' } }}
       >
-        <Stack p="20px" gap="20px" width="350px">
-          <Stack
-            direction="row"
-            gap="20px"
-            flexWrap="wrap"
-            justifyContent="center"
-          >
+        <Stack p="20px" gap="20px" width="450px">
+          <Typography variant="h6">Select Status</Typography>
+          <Stack direction="row" gap="10px" flexWrap="wrap">
             {PROJECT_STATUS_OPTIONS.map((status) => {
               return (
                 <Chip
                   key={status.value}
                   label={status.label}
                   onClick={() => handleMultipleClick(status)}
-                  color="primary"
+                  color={
+                    filterState.includes(status.value) ? 'primary' : 'default'
+                  }
                   variant={
                     filterState.includes(status.value)
                       ? 'contained'
                       : 'outlined'
                   }
+                  sx={{ width: '130px' }}
                 />
               );
             })}

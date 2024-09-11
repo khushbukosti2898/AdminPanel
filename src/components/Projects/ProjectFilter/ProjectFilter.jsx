@@ -9,15 +9,19 @@ export const ProjectFilter = ({ search, applyFilter, filter, resetFilter }) => {
       direction="row"
       alignItems="center"
       sx={{
+        backgroundColor: '#F5F5F5',
         border: '1px solid rgba(224, 224, 224, 1)',
-        height: '40px',
         '.filterItem': {
-          padding: '8px 16px',
+          padding: '10px 20px',
         },
       }}
     >
       <Typography component="span" className="filterItem">
         <FilterAltOutlinedIcon size="small" />
+      </Typography>
+      <Divider orientation="vertical" flexItem />
+      <Typography component="div" flexItem className="filterItem">
+        Filter By
       </Typography>
       <Divider orientation="vertical" flexItem />
       <TextField

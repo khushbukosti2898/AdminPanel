@@ -1,11 +1,9 @@
 import React from 'react';
 import { Theme } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
 import { css } from '@emotion/css';
 import Paper from '@mui/material/Paper';
 import { Stack, useTheme } from '@mui/system';
 import { createGlobalStyle } from 'styled-components';
-import { Container } from '@mui/material';
 
 const useStyles = (theme) => ({
   root: css({
@@ -16,7 +14,7 @@ const useStyles = (theme) => ({
   }),
   formClass: css({
     padding: '60px 30px',
-    borderRadius: '30px!important',
+    borderRadius: '10px!important',
 
     form: {
       width: '380px',

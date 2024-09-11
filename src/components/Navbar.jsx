@@ -1,19 +1,19 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
 import { ListItemIcon } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AppsIcon from '@mui/icons-material/Apps';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { DEFAULT_PATH, ESTIMATES_PATH, PROJECTS_PATH } from '../utils/path';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { mockLogout } from '../api/mockAPi';
 
 export const NAVIGATION_MENU = [
   {
@@ -37,13 +37,7 @@ export const NAVIGATION_MENU = [
 ];
 
 export const Navbar = (props) => {
-  const {
-    window,
-    drawerWidth,
-    mobileOpen,
-    handleDrawerClose,
-    handleDrawerTransitionEnd,
-  } = props;
+  const { window, drawerWidth, open } = props;
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -51,22 +45,48 @@ export const Navbar = (props) => {
     navigate(link);
   };
 
+  const logout = () => {
+    mockLogout();
+    navigate('/login');
+  };
+
   const drawer = (
     <div>
-      <Toolbar />
-      <Divider />
-      <List>
+      <List sx={{ padding: '20px' }}>
         {NAVIGATION_MENU.map((menu) => (
           <ListItem key={menu.id} disablePadding>
             <ListItemButton
               onClick={() => menuLinkClick(menu.link)}
               selected={location.pathname === menu.link}
+              sx={{ borderRadius: '5px' }}
             >
-              <ListItemIcon>{menu.icon}</ListItemIcon>
+              <ListItemIcon
+                sx={{
+                  svg: {
+                    color:
+                      location.pathname === menu.link
+                        ? 'white'
+                        : 'rgba(0, 0, 0, 0.6)',
+                  },
+                }}
+              >
+                {menu.icon}
+              </ListItemIcon>
               <ListItemText primary={menu.label} />
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem
+          sx={{ position: 'fixed', bottom: 0, width: `${drawerWidth}px` }}
+          disablePadding
+        >
+          <ListItemButton onClick={logout}>
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );
@@ -78,41 +98,27 @@ export const Navbar = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
         <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onTransitionEnd={handleDrawerTransitionEnd}
-          onClose={handleDrawerClose}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
+          sx={(theme) => ({
+            width: drawerWidth,
+            flexShrink: 0,
             '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
               width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: drawerWidth,
+              marginTop: '64px',
+              [theme.breakpoints.down('sm')]: {
+                marginTop: '56px',
+              },
             },
-          }}
-          open
+          })}
+          variant="persistent"
+          anchor="left"
+          open={open}
         >
           {drawer}
         </Drawer>

@@ -3,9 +3,8 @@ import { Grid, Stack } from '@mui/material';
 import { PageHeader } from '../../components/PageHeader';
 import { ChartComponent } from '../../components/core/ChartComponent';
 import { SummaryCard } from '../../components/Dashboard/SummaryCard';
-import { useTranslation } from 'react-i18next'; // Import i18next hook
+import { useTranslation } from 'react-i18next';
 
-// Sample data for the charts (no changes needed for chart data)
 const lineChartOptions = {
   xAxis: {
     type: 'category',
@@ -66,7 +65,7 @@ const pieChartData = {
 };
 
 export const Dashboard = () => {
-  const { t } = useTranslation(); // Use the translation hook
+  const { t } = useTranslation();
 
   return (
     <Stack gap="15px">

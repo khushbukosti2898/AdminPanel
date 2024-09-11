@@ -8,7 +8,7 @@ export const PageHeader = ({
 }) => {
   return (
     <Stack direction="row" justifyContent="space-between">
-      <Typography variant="h6" fontWeight="600">
+      <Typography variant="h3" fontWeight="600">
         {title}
       </Typography>
       {buttonTitle && showButton && (

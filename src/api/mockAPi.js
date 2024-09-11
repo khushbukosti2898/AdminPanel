@@ -26,6 +26,10 @@ export const mockLogin = (email, password) => {
   return false;
 };
 
+export const mockLogout = () => {
+  localStorage.removeItem('authToken');
+};
+
 const projects = [
   { id: 1, name: 'Project A', status: 'Active' },
   { id: 2, name: 'Project B', status: 'Completed' },
