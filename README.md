@@ -12,15 +12,15 @@ Clone the repository:
 git clone https://github.com/khushbukosti2898/AdminPanel
 
 Navigate to the project directory:
-cd dashboard-app
+cd AdminPanel
 
 Install dependencies:
 npm install
 
 Start the development server:
-npm start
+npm run dev
 
-Open the app: The app will be running at http://localhost:3000.
+Open the app: The app will be running at http://localhost:5173/.
 
 Key Directories:
 components: Contains reusable components like PageHeader, ChartComponent, and SummaryCard. These components are used across the app.
